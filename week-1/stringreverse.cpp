@@ -19,12 +19,14 @@ int main()
     cout<<"Enter a string : ";
     cin>>name;
     int x = name.length();
-    char n[x];
+    char* charArr = new char[x+1];
     for(int i = 0; i<x; i++)
     {
-        n[i]=name[i];
+        charArr[i]=name[i];
     }
-    reverseString(n, x);
-    cout << "Reversed: " << n << endl; 
+    *(charArr +x) = '\0';
+    reverseString(charArr, x);
+    cout << "Reversed: " << charArr << endl; 
+    delete[] charArr;
     return 0;
 }
