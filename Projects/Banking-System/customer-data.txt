@@ -1,0 +1,6 @@
+1 Ahmad 5000
+2 Faraz 10282
+3 Abdullah 3000
+4 Fatima 6000
+5 Kulsum 4000
+6 Moona 10000
