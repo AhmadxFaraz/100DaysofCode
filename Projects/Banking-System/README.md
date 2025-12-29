@@ -28,7 +28,7 @@ The project focuses on correct system design rather than UI complexity.</p>
 - Transaction history is append-only and stored separately from account data
   to preserve auditability.
 
-  ## What I Learned
+## What I Learned
 This project helped me understand how real systems manage state, why relying
 on indices is fragile, and how file-based persistence changes program design.
 It also improved my ability to reason about correctness and edge cases.
