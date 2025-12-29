@@ -17,8 +17,8 @@ class Account
     void display()
     {
         cout<<"Details for your Account\n";
-        cout<<Account_Number;
         cout<<Name<<" : "<<Balance<<endl;
+        cout<<"Remeber your Accoun Number : "<<Account_Number<<", for future reference/logging"<<endl;
     }
     int getAN()
     {
@@ -88,6 +88,7 @@ int main()
     vector<Account> accounts;
     int choice;
     int acn;
+    cout<<"\t---Welcome to My Bank\t---"<<endl;
     ifstream importFile("customer-data.txt");
     if(!importFile)
     {
@@ -106,25 +107,31 @@ int main()
     }
     do
     {
-        cout<<"\t---Welcome to My Bank---\t"<<endl;
-        cout<<"1.Create a Account\n";
-        cout<<"2.Check your Balance\n";
-        cout<<"3.Deposit Money\n";
-        cout<<"4.Withdraw Money\n";
-        cout<<"5.View Transaction histroy\n";
-        cout<<"6.Quit\n";
+        cout<<endl;
+        cout<<"\t-----------------------------------------\t"<<endl;
+        cout<<"\t---What brings you here?---\t"<<endl;
+        cout<<"\t1.Create a Account\t\n";
+        cout<<"\t2.Check your Balance\t\n";
+        cout<<"\t3.Deposit Money\t\n";
+        cout<<"\t4.Withdraw Money\t\n";
+        cout<<"\t5.View Transaction histroy\t\n";
+        cout<<"\t6.Quit\t\n";
+        cout<<"\t-----------------------------------------\t";
+        cout<<endl;
         cout<<"Enter your choice : ";
         cin>>choice;
         if(choice==1)
         {
             string name;
             double balance;
-            cout<<"Enter you name(one word) : ";
+            cout<<"Enter your name(one word) : ";
             cin>>name;
             cout<<"Enter amount you want to deposit : ";
             cin>>balance;
             accounts.push_back(Account(name, balance, acn));
+            cout<<"Account created successfully!"<<endl;
             Account* acc = findAccountByNumber(accounts, acn);
+            acc->display();
             ofstream outFile("customer-data.txt", ios::app);
             outFile<<acc->getAN()<<" "<<acc->getName()<<" "<<acc->getBalance()<<endl;
             outFile.close();
@@ -141,6 +148,7 @@ int main()
             Account* acc = findAccountByNumber(accounts, searchAcc);
             if(acc!=nullptr)
             {
+                cout<<"Hello, "<<acc->getName()<<endl;
                 cout<<"Your Current Balance : "<<acc->getBalance()<<endl;
             }
             else
@@ -219,6 +227,7 @@ int main()
             int search3acn;
             cin>>search3acn;
             Account* acc = findAccountByNumber(accounts, search3acn);
+            cout<<"Hello, "<<acc->getName()<<endl;
             if(acc!=nullptr)
             {
                 string type;
@@ -243,5 +252,6 @@ int main()
             }
         }
     }while (choice!=6);
+    cout<<"Thank you for visiting My Bank"<<endl;
     return 0;
 }
