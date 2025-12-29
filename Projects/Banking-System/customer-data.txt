@@ -4,3 +4,5 @@
 4 Fatima 6000
 5 Kulsum 4000
 6 Moona 10000
+7 Kriti 4000
+8 Roshan 5141
