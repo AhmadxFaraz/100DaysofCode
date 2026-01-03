@@ -1,5 +1,5 @@
 1 Ahmad 7000
-2 Faraz 10000
+2 Faraz 9801
 3 Abdullah 2000
 4 Fatima 5000
 5 Kulsum 5000
@@ -8,3 +8,4 @@
 8 Atif 100
 9 Kritagya 600
 10 Sadique 5000
+11 Harry 1836
