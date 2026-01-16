@@ -2,7 +2,7 @@ import colorgram
 from turtle import Turtle, Screen, colormode
 import random
 
-colors = colorgram.extract('photo.png', 500)
+colors = colorgram.extract('photo.png', 25)
 color_list = [c.rgb for c in colors]
 
 screen = Screen()
