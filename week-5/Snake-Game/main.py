@@ -34,7 +34,7 @@ while game_is_on:
         scoreboard.increase_score()
 
     if snake.head.xcor()>294 or snake.head.xcor() < -300 or snake.head.ycor() > 294 or snake.head.ycor() < -294:
-        scoreboard.game_over()
+        scoreboard.reset()
         game_is_on = False
 
     for segment in snake.segments[1:]:
