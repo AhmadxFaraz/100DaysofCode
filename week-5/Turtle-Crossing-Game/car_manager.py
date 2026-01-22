@@ -20,7 +20,7 @@ class CarManager():
             new_car.shape("square")
             new_car.shapesize(1,2)
             new_car.penup()
-            new_car.goto(-300, random.randint(-280,280))
+            new_car.goto(300, random.randint(-280,280))
             new_car.showturtle()
             self.cars.append(new_car)
 
@@ -28,12 +28,8 @@ class CarManager():
         self.move_speed *= 0.5
 
     def move(self, car):
-        car.forward(MOVE_INCREMENT)
+        car.backward(MOVE_INCREMENT)
 
     def start(self):
         for car in self.cars:
             self.move(car)
-    
-    def refresh(self):
-        self.cars.clear()
-            

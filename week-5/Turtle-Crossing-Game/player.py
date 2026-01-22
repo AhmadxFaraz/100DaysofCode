@@ -17,10 +17,10 @@ class Player:
         self.level = 1
 
     def move_up(self):
-        self.player.forward(10)
+        self.player.forward(MOVE_DISTANCE)
 
     def move_down(self):
-        self.player.backward(10)
+        self.player.backward(MOVE_DISTANCE)
 
     def refresh(self):
         self.player.goto(0,-280)
