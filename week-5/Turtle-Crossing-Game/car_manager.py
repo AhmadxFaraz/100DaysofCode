@@ -3,7 +3,7 @@ import time
 import random
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
-MOVE_INCREMENT = 20
+MOVE_INCREMENT = 10
 
 
 class CarManager():
@@ -13,7 +13,7 @@ class CarManager():
         self.move_speed = 0.1
         
     def create_car(self):
-        ans = random.choice(['yes', 'no', 'no', 'no', 'no'])
+        ans = random.choice(['yes', 'no', 'no', 'no', 'no', 'no'])
         if ans == 'yes':
             new_car = Turtle()
             new_car.color(random.choice(COLORS))
