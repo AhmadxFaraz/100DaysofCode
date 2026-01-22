@@ -38,6 +38,11 @@ class Snake:
     def extend(self):
         self.add_segment(self.segments[-1].position())
 
+    def reset(self):
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
