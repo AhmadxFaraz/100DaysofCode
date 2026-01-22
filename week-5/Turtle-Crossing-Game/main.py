@@ -28,9 +28,8 @@ while game_is_on:
         scoreboard.next_level()
         player.refresh()
         car_manager.increase_speed()
-        car_manager.refresh()
     for car in car_manager.cars:
-        if player.distance(car) < 30:
+        if player.distance(car) < 20:
             game_is_on = False
             scoreboard.game_over()
 
