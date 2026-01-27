@@ -25,7 +25,8 @@ class CarManager():
             self.cars.append(new_car)
 
     def increase_speed(self):
-        self.move_speed *= 0.5
+        if self.move_speed > 0.02:
+            self.move_speed -= 0.01 #increase car speed on level up(modified by SG)
 
     def move(self, car):
         car.backward(MOVE_INCREMENT)
@@ -33,3 +34,10 @@ class CarManager():
     def start(self):
         for car in self.cars:
             self.move(car)
+        self.cars = [car for car in self.cars if car.xcor() > -320]
+    
+    def clear_cars(self):
+        for car in self.cars:
+            car.hideturtle()
+        self.cars.clear()#clears car list after level completion(modified by SG)
+
