@@ -23,8 +23,16 @@ class Scoreboard(Turtle):
     def game_over(self):
         self.clear()
         self.goto(0,0)
-        self.write("Game Over!", align="center", font=FONT)
+        self.write("Game Over!", align="center", font=(FONT,60,"bold"))#size modified by SG
 
-    
+    def level_transition(self):
+        self.clear()
+        self.goto(0, 0)
+        self.write(                                 #level number display at center(modified by SG)
+            f"LEVEL {self.level}",
+            align="center",
+            font=("Courier", 30, "bold")
+        )
+
 
 

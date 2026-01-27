@@ -25,12 +25,25 @@ while game_is_on:
     car_manager.create_car()
     car_manager.start()
     if player.finished():
-        scoreboard.next_level()
-        player.refresh()
-        car_manager.increase_speed()
+        car_manager.clear_cars()    #clear screen after level completion(modified by SG)
+
+        scoreboard.next_level()  #level increment
+        scoreboard.level_transition()   #level number display at center(modified by SG)
+
+        screen.update() #refresh screen to show level transition(modified by SG)
+        time.sleep(1.2)   # animation pause(modified by SG)
+
+        scoreboard.clear()  
+        scoreboard.goto(-240, 280)  
+        scoreboard.write(f"Level - {scoreboard.level}", align="center", font=("Courier", 10, "normal")) #modified by SG
+
+        player.refresh()    
+        car_manager.increase_speed()    
+
+
     for car in car_manager.cars:
         if player.distance(car) < 20:
             game_is_on = False
-            scoreboard.game_over()
+            scoreboard.game_over()  #game over display:)
 
 screen.exitonclick()
