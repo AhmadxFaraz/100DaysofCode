@@ -1,5 +1,15 @@
 from tkinter import *
 import math
+from pygame import mixer
+# ------------------------- Sound Mechanism ---------------------------- #
+mixer.init()
+
+Work = mixer.Sound("/Users/ahmadxfaraz/CodingProjects/100DaysofCode/week-6/Pomodoro-App/Work-Start.mp3")
+Break = mixer.Sound("/Users/ahmadxfaraz/CodingProjects/100DaysofCode/week-6/Pomodoro-App/Break-Start.mp3")
+
+def play_sound(sound):
+    sound.play()
+
 # ---------------------------- CONSTANTS ------------------------------- #
 #Colors
 PINK = "#e2979c"
@@ -41,14 +51,17 @@ def start_timer():
     #If it's the 8th rep:
     if reps % 8 == 0:
         count_down(long_break_sec)
+        play_sound(Break)
         timer_label.config(text="Break", fg=RED)
     #If it's the 2nd/4th/6th rep:
     elif reps % 2 == 0:
         count_down(short_break_sec)
+        play_sound(Break)
         timer_label.config(text="Break", fg=PINK)
     #If it's the 1st/3rd/5th/7th rep:
     else:
         count_down(work_sec)
+        play_sound(Work)
         timer_label.config(text="Work", fg=GREEN)
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(count):
