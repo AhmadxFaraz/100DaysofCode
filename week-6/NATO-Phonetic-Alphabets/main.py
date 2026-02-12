@@ -12,6 +12,7 @@ while invalid:
         new = [phonetic_dict[letter] for letter in word]
     except KeyError:
         invalid = True
+        print("Sorry, only letters in the alphabet please.")
     else:
         print(new)
         invalid = False
