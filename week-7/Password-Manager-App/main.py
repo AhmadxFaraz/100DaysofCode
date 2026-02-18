@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import randint, choice, shuffle
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -31,19 +32,53 @@ def save():
     website = website_entry.get()
     email = email_entry.get()
     password = password_entry.get()
+    new_data = {
+        website: {
+           "email": email,
+           "password": password,
+        }
+    }
 
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(title="Oops", message="Please make sure you haven't left any fields empty.")
     else:
-        is_ok = messagebox.askokcancel(title=website, message=f"There are the details entered: \nEmail: {email}" f"\nPassword: {password} \nIs it ok to save?")
+        try:
+            with open("/Users/ahmadxfaraz/CodingProjects/100DaysofCode/week-7/Password-Manager-App/Pass.json", "r") as data_file:
+                #Reading old data
+                data = json.load(data_file)
+            
+        except FileNotFoundError:
+            with open("/Users/ahmadxfaraz/CodingProjects/100DaysofCode/week-7/Password-Manager-App/Pass.json", "w") as data_file:
+                #Saving updated data
+                json.dump(new_data, data_file, indent=4)
 
-        if is_ok:
-            with open("/Users/ahmadxfaraz/CodingProjects/100DaysofCode/week-7/Password-Manager-App/Pass.txt", "a") as data_file:
-                data_file.write(f"{website} | {email} | {password}\n")
+        else:
+            #Updating old data with new data
+            data.update(new_data)
+            with open("/Users/ahmadxfaraz/CodingProjects/100DaysofCode/week-7/Password-Manager-App/Pass.json", "w") as data_file:
+                #Saving updated data
+                json.dump(data, data_file, indent=4)
+
+        finally:
                 website_entry.delete(0,END)
                 password_entry.delete(0,END)
                 email_entry.delete(0,END)
                 pyperclip.copy(password)
+
+def search_pass():
+    website = website_entry.get()
+    try:
+        with open("/Users/ahmadxfaraz/CodingProjects/100DaysofCode/week-7/Password-Manager-App/Pass.json") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message="No data file found")
+    else:
+        if website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
+            messagebox.showinfo(title=website, message=f"Email: {email}\nPassword: {password}")
+        else:
+            messagebox.showinfo(title="Error", message="No details for {website} exists.")
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
@@ -64,8 +99,8 @@ password_label = Label(text="Password: ")
 password_label.grid(row=3, column=0)
 
 #Entries
-website_entry = Entry(width=35)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=20)
+website_entry.grid(row=1, column=1,)
 website_entry.focus()
 email_entry = Entry(width=35)
 email_entry.grid(row=2, column=1, columnspan=2)
@@ -73,6 +108,8 @@ password_entry = Entry(width=20)
 password_entry.grid(row=3, column=1)
 
 #Buttons
+search_button = Button(text="Search", width=11, command=search_pass)
+search_button.grid(row=1, column=2)
 generate_password_button = Button(text="Generate Password", width=11, command=generate_pass)
 generate_password_button.grid(row=3, column=2)
 add_button = Button(text="Add", width=32, command=save)
