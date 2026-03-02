@@ -11,7 +11,7 @@ with open("quotes.txt") as quotes:
     
 # email & password sensitive info... 
 my_email = "anonymous@gmail.com"
-password = "ambiguous69"
+password = "password"
 
 with smtplib.SMTP("smtp.gmail.com", 587) as connection:
     connection.starttls()
