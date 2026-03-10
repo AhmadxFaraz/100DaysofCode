@@ -6,7 +6,7 @@ import os
 now = dt.datetime.now()
 weekday = now.weekday()
      
-with open("quotes.txt") as quotes:
+with open("week-09/Quotes-Mailing-Automation/quotes.txt") as quotes:
     all_quotes = quotes.readlines()
     quote = r.choice(all_quotes)
     
