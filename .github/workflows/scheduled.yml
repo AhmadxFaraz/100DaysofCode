@@ -1,5 +1,4 @@
 name: Daily Script
-
 on:
   schedule:
     # ╔═══════════════════════════════════════════════════════════════╗
@@ -14,8 +13,7 @@ on:
     # ║                                                                ║
     # ║  Use https://time.is/UTC to find your local time in UTC       ║
     # ╚═══════════════════════════════════════════════════════════════╝
-    - cron: '50 21 * * *'
-
+    - cron: '30 2 * * *'
   # This adds a "Run workflow" button so you can test manually
   workflow_dispatch:
 
