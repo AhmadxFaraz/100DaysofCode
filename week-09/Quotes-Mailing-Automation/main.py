@@ -2,6 +2,9 @@ import datetime as dt
 import random as r
 import smtplib
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 now = dt.datetime.now()
 weekday = now.weekday()
@@ -19,5 +22,5 @@ with smtplib.SMTP("smtp.gmail.com", 587) as connection:
     connection.login(EMAIL, PASSWORD)
     connection.sendmail(
         from_addr=EMAIL, 
-        to_addrs="anonymous@gmail.com", 
+        to_addrs="ahmadxfaraz@gmail.com", 
         msg=f"Subject: Daily Quotes\n\n{quote}")
