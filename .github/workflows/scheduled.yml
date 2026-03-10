@@ -9,7 +9,7 @@ on:
     # ║                                                                ║
     # ║  Examples:                                                     ║
     # ║    '0 9 * * *'   = 9:00 AM UTC daily                          ║
-    # ║    '30 14 * * *' = 2:30 PM UTC daily                          ║
+    # ║    '30 14 * * *' = 2:30 PM UTC daily                   s       ║
     # ║    '0 0 * * *'   = Midnight UTC daily                         ║
     # ║                                                                ║
     # ║  Use https://time.is/UTC to find your local time in UTC       ║
