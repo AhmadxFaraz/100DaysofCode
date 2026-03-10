@@ -16,7 +16,7 @@ PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
 with smtplib.SMTP("smtp.gmail.com", 587) as connection:
     connection.starttls()
-    connection.login(user=EMAIL, password=PASSWORD)
+    connection.login(EMAIL, PASSWORD)
     connection.sendmail(
         from_addr=EMAIL, 
         to_addrs="anonymous@gmail.com", 
