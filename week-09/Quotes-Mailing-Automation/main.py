@@ -1,6 +1,7 @@
 import datetime as dt
 import random as r
 import smtplib
+import os
 
 now = dt.datetime.now()
 weekday = now.weekday()
@@ -10,13 +11,13 @@ with open("quotes.txt") as quotes:
     quote = r.choice(all_quotes)
     
 # email & password sensitive info... 
-my_email = "anonymous@gmail.com"
-password = "password"
+EMAIL = os.environ.get("EMAIL_ADDRESS")
+PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
 with smtplib.SMTP("smtp.gmail.com", 587) as connection:
     connection.starttls()
-    connection.login(user=my_email, password=password)
+    connection.login(user=EMAIL, password=PASSWORD)
     connection.sendmail(
-        from_addr=my_email, 
+        from_addr=EMAIL, 
         to_addrs="anonymous@gmail.com", 
         msg=f"Subject: Daily Quotes\n\n{quote}")
