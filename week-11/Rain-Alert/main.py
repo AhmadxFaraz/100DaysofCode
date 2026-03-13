@@ -11,7 +11,7 @@ my_number = os.environ["MY_NUMBER"]
 twilio_number = os.environ["TWILIO_NUMBER"]
 
 OWM_Endpoint = "https://api.openweathermap.org/data/2.5/forecast"
-API_KEY = os.environ["API_KEY"]
+API_KEY = os.environ["TWILIO_API_KEY"]
 LAT=27.897321368693245 
 LON=78.0841561004687
 
