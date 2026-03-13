@@ -1,10 +1,15 @@
+import os
 from datetime import datetime
 import smtplib
 import random
 import pandas as pd
+from dotenv import load_dotenv
 
-my_email = "anonymous@gmail.com"
-password = "password"
+load_dotenv()
+
+
+EMAIL = os.environ.get("EMAIL_ADDRESS")
+PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
 data = pd.read_csv("birthdays.csv")
 
@@ -21,8 +26,8 @@ if today_tuple in birthday_dict:
 
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
-        connection.login(user=my_email, password=password)
+        connection.login(user=EMAIL, password=PASSWORD)
         connection.sendmail(
-            from_addr=my_email, 
+            from_addr=EMAIL, 
             to_addrs=birthday_person["email"], 
             msg=f"Subject: Happy Birthday!\n\n{contents}")
