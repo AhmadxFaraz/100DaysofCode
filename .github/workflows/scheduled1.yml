@@ -1,20 +1,8 @@
 name: Rain Alert
 on:
   schedule:
-    # ╔═══════════════════════════════════════════════════════════════╗
-    # ║  CHANGE THE LINE BELOW to set when your script runs          ║
-    # ║                                                                ║
-    # ║  Format:  'MINUTE HOUR * * *'                                  ║
-    # ║                                                                ║
-    # ║  Examples:                                                     ║
-    # ║    '0 9 * * *'   = 9:00 AM UTC daily                          ║
-    # ║    '30 14 * * *' = 2:30 PM UTC daily                   s       ║
-    # ║    '0 0 * * *'   = Midnight UTC daily                         ║
-    # ║                                                                ║
-    # ║  Use https://time.is/UTC to find your local time in UTC       ║
-    # ╚═══════════════════════════════════════════════════════════════╝
     - cron: '39 00 * * *'
-  # This adds a "Run workflow" button so you can test manually
+
   workflow_dispatch:
 
 jobs:
@@ -37,8 +25,7 @@ jobs:
 
       - name: Run script
         env:
-          # Your secrets are available as environment variables
-          # Add more secrets in Settings > Secrets > Actions
+
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           MY_NUMBER: ${{ secrets.MY_NUMBER }}
