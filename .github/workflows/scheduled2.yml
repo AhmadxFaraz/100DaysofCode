@@ -1,4 +1,4 @@
-name: Rain Alert
+name: Stock Price Alert
 on:
   schedule:
     - cron: '00 00 * * *'
