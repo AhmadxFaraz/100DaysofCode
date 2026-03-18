@@ -2,9 +2,15 @@ from datetime import datetime
 import requests
 import smtplib
 import time
+import os
+from dotenv import load_dotenv
 
-MY_EMAIL = "anonymous"
-MY_PASSWORD = "encrypted"
+load_dotenv()
+
+
+MY_EMAIL = os.environ.get("EMAIL_ADDRESS")
+MY_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+
 
 MY_LAT = 27.91609
 MY_LNG = 78.07617
