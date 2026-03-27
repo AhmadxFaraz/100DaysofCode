@@ -8,7 +8,7 @@ class FlightSearch:
         self.SERP_API_KEY = os.environ["SERP_API_KEY"]
 
     def search(self, iataCode):
-        from serpapi import GoogleSearch
+        import serpapi
         from datetime import datetime, timedelta
         from pprint import pprint
         today = datetime.now()
