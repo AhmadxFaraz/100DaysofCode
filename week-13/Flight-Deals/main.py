@@ -13,5 +13,5 @@ latestflightdata = flightdata.plan_trip()
 
 for item in latestflightdata:
     if item["city"] in city_price:
-        if int(item["lowest_price"])>=int(city_price[item["city"]]):
+        if int(item["lowest_price"])<=int(city_price[item["city"]]):
             notification.sent_message(item["city"], int(item["lowest_price"]))
