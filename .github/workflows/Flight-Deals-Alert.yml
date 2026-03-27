@@ -28,7 +28,7 @@ jobs:
           
           SHEETY_USERNAME: ${{ secrets.SHEETY_USERNAME }}
           SHEETY_PASSWORD: ${{ secrets.SHEETY_PASSWORD }}
-          SERP-API-KEY: ${{ secrets.SERP_API_KEY }}
+          SERP_API_KEY: ${{ secrets.SERP_API_KEY }}
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           MY_NUMBER: ${{ secrets.MY_NUMBER }}

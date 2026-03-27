@@ -5,7 +5,7 @@ class FlightSearch:
         import dotenv
         dotenv.load_dotenv()
 
-        self.API_KEY = os.environ["SERP-API-KEY"]
+        self.SERP_API_KEY = os.environ["SERP_API_KEY"]
 
     def search(self, iataCode):
         from serpapi import GoogleSearch
@@ -23,7 +23,7 @@ class FlightSearch:
             "type": "1",
             "outbound_date": date,
             "return_date": inbound,
-            "api_key": self.API_KEY
+            "api_key": self.SERP_API_KEY
         }
 
         price_info = 1000000
