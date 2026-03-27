@@ -1,0 +1,36 @@
+name: Flight Deals Alert
+on:
+  schedule:
+    - cron: '00 00 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r week-13/Flight-Deals/requirements.txt
+
+      - name: Run script
+        env:
+          
+          SHEETY_USERNAME: ${{ secrets.SHEETY_USERNAME }}
+          SHEETY_PASSWORD: ${{ secrets.SHEETY_PASSWORD }}
+          SERP-API-KEY: ${{ secrets.SERP_API_KEY }}
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          MY_NUMBER: ${{ secrets.MY_NUMBER }}
+          TWILIO_WHATSAPP_NUMBER: ${{ secrets.TWILIO_WHATSAPP_NUMBER }}
+        run: python week-13/Flight-Deals/main.py
