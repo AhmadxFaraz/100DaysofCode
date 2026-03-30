@@ -1,0 +1,7 @@
+datetime
+python-dotenv
+requests
+twilio
+smptlib
+serpapi
+google-search-results
