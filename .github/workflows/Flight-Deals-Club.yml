@@ -1,7 +1,7 @@
 name: The Flight Club
 on:
   schedule:
-    - cron: '00 00 * * *'
+    - cron: '00 00 * * 2'
 
   workflow_dispatch:
 
