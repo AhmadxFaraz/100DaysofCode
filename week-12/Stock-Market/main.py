@@ -72,3 +72,4 @@ if Get_News:
         body=f"TSLA: {dir}{percent_diff:.2f}%\nHeadline: {titles[i]}\nBrief: {descriptions[i]}\nURL: {urls[i]}",
         to=f"whatsapp:{my_number}"
         )
+#comment
